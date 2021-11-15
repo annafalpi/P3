@@ -10,8 +10,13 @@ using namespace std;
 namespace upc {
   void PitchAnalyzer::autocorrelation(const vector<float> &x, vector<float> &r) const {
 
-    for (unsigned int l = 0; l < r.size(); ++l) {
+    for (unsigned int l = 0; l < r.size(); ++l) { //r és un vector pq te size
   		/// \TODO Compute the autocorrelation r[l]
+      /// \DONE :) hem implementat l'autocorrelació d'un senyal real.
+      r[l]=0;
+      for ( unsigned int n = 0; n < x.size()-l ; n++) {
+        r[l] += x[n] * x[n+l]; 
+      }
     }
 
     if (r[0] == 0.0F) //to avoid log() and divide zero 
@@ -47,7 +52,7 @@ namespace upc {
   }
 
   bool PitchAnalyzer::unvoiced(float pot, float r1norm, float rmaxnorm) const {
-    /// \TODO Implement a rule to decide whether the sound is voiced or not.
+    /// \TODO Implement a rule to decide whether the sound is voiced or not. --> en funció del llindar donat pel valor màxim de l'autocorr. 
     /// * You can use the standard features (pot, r1norm, rmaxnorm),
     ///   or compute and use other ones.
     return true;

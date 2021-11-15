@@ -15,12 +15,17 @@ namespace upc {
   /// No pre-processing or post-processing has been included
   ///
   class PitchAnalyzer {
-  public:
+  public: 
+  //Estructura con atributos y métodos publicos, privados, reservados, etc. 
+  //Publico: podemos acceder desde cualquier parte del programa (lo podemos poner desde el programa principal)
+  //Privado: funciones y métodos del propio programa (objeto)
+
 	/// Wndow type
     enum Window {
 		RECT, 						///< Rectangular window
 		HAMMING						///< Hamming window
 	};
+    float threshold1;
 
     void set_window(Window type); ///< pre-compute window
 

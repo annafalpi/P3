@@ -55,7 +55,15 @@ namespace upc {
     /// \TODO Implement a rule to decide whether the sound is voiced or not. --> en funció del llindar donat pel valor màxim de l'autocorr. 
     /// * You can use the standard features (pot, r1norm, rmaxnorm),
     ///   or compute and use other ones.
-    return true;
+    if(rmaxnorm > threshold1){
+      return false;
+    } else {
+      return true;
+    }
+      
+
+    //Como tiene que funcionar: devuelve T si la trama es sorda, F si la trama es sonora
+    
   }
 
   float PitchAnalyzer::compute_pitch(vector<float> & x) const {
@@ -71,7 +79,7 @@ namespace upc {
     //Compute correlation
     autocorrelation(x, r);
 
-    vector<float>::const_iterator iR = r.begin(), iRMax = iR;
+    vector<float>::const_iterator iR = r.begin(), iRMax = iR + npitch_min; //Si no no encuentra valores lógicos
 
     /// \TODO 
 	/// Find the lag of the maximum value of the autocorrelation away from the origin.<br>
@@ -81,9 +89,15 @@ namespace upc {
     ///	   .
 	/// In either case, the lag should not exceed that of the minimum value of the pitch.
 
-    unsigned int lag = iRMax - r.begin();
+    for (iR = r.begin() + npitch_min ; iR < r.begin() + npitch_max ; iR++){
+      if(*iR > *iRMax){ //Valor apuntado se pone con un *
+        iRMax = iR;
+      }
+    }
 
-    float pot = 10 * log10(r[0]);
+    unsigned int lag = iRMax - r.begin(); //Desplazamiento
+
+    float pot = 10 * log10(r[0]); //Potencia de la señal
 
     //You can print these (and other) features, look at them using wavesurfer
     //Based on that, implement a rule for unvoiced
@@ -93,7 +107,7 @@ namespace upc {
       cout << pot << '\t' << r[1]/r[0] << '\t' << r[lag]/r[0] << endl;
 #endif
     
-    if (unvoiced(pot, r[1]/r[0], r[lag]/r[0]))
+    if (unvoiced(pot, r[1]/r[0], r[lag]/r[0])) 
       return 0;
     else
       return (float) samplingFreq/(float) lag;

@@ -16,6 +16,7 @@
 using namespace std;
 using namespace upc;
 
+//docopt [editar si queremos introducir parámetros por terminal] modificado en clase
 static const char USAGE[] = R"(
 get_pitch - Pitch Detector 
 
@@ -25,6 +26,7 @@ Usage:
     get_pitch --version
 
 Options:
+    -1 FLOAT, --threshold1 FLOAT  Threshold Autocorrelation sonoro/sordo para rmaxnorm [default: 0.5]
     -h, --help  Show this screen
     --version   Show the version of the project
 
@@ -39,13 +41,16 @@ int main(int argc, const char *argv[]) {
 	/// \TODO 
 	///  Modify the program syntax and the call to **docopt()** in order to
 	///  add options and arguments to the program.
+  // Es lo que haciamos en el fichero a parte del docopt en C, en C++ mejora y se incluye en el propio fichero
     std::map<std::string, docopt::value> args = docopt::docopt(USAGE,
         {argv + 1, argv + argc},	// array of arguments, without the program name
         true,    // show help if requested
         "2.0");  // version string
 
+//el espacio de nombres es estandar (std) en la clase de string
 	std::string input_wav = args["<input-wav>"].asString();
 	std::string output_txt = args["<output-txt>"].asString();
+  float threshold1 = atof(args["--threshold1"].asString().c_str()); //modificado en clase
 
   // Read input sound file
   unsigned int rate;
@@ -58,8 +63,9 @@ int main(int argc, const char *argv[]) {
   int n_len = rate * FRAME_LEN;
   int n_shift = rate * FRAME_SHIFT;
 
-  // Define analyzer
-  PitchAnalyzer analyzer(n_len, rate, PitchAnalyzer::HAMMING, 50, 500);
+  // Define analyzer (creamos el objeto, tenemos que poner los parámetros que introducimos por terminal)
+  PitchAnalyzer analyzer(n_len, rate, PitchAnalyzer::RECT, 50, 500); //tambien puede ser una ventana de HAMMING
+  analyzer.threshold1 = threshold1;
 
   /// \TODO
   /// Preprocess the input signal in order to ease pitch estimation. For instance,

@@ -40,7 +40,7 @@ Arguments:
 int main(int argc, const char *argv[]) {
 	/// \TODO 
 	///  Modify the program syntax and the call to **docopt()** in order to
-	///  add options and arguments to the program.
+	///  add options and arguments to the program -> Anna.
   // Es lo que haciamos en el fichero a parte del docopt en C, en C++ mejora y se incluye en el propio fichero
     std::map<std::string, docopt::value> args = docopt::docopt(USAGE,
         {argv + 1, argv + argc},	// array of arguments, without the program name

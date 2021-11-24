@@ -31,7 +31,7 @@ namespace upc {
 
     switch (win_type) {
     case HAMMING:
-      /// \TODO Implement the Hamming window
+      /// \TODO Implement the Hamming window -> Sara
       break;
     case RECT:
     default:
@@ -52,7 +52,7 @@ namespace upc {
   }
 
   bool PitchAnalyzer::unvoiced(float pot, float r1norm, float rmaxnorm) const {
-    /// \TODO Implement a rule to decide whether the sound is voiced or not. --> en funció del llindar donat pel valor màxim de l'autocorr. 
+    /// \TODO Implement a rule to decide whether the sound is voiced or not. --> en funció del llindar donat pel valor màxim de l'autocorr -> Anna y Sara 
     /// * You can use the standard features (pot, r1norm, rmaxnorm),
     ///   or compute and use other ones.
     if(rmaxnorm > threshold1){

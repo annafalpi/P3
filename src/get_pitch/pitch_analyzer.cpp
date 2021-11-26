@@ -32,10 +32,17 @@ namespace upc {
     switch (win_type) {
     case HAMMING:
       /// \TODO Implement the Hamming window -> Sara
+    //cout << "La Hamming ; Framelen: " << frameLen <<" \n";
+    for(unsigned int i = 0; i < frameLen; i++){
+        window[i] =  0.54 - 0.46*cos(2*M_PI*i/frameLen-1); // no se si estic assignant bé el vector 
+      }
+    /*for (vector<float>::iterator iXaux = window.begin(); iXaux < window.end(); iXaux++) {
+      cout << *iXaux << "\n";
+    }*/
       break;
     case RECT:
     default:
-      window.assign(frameLen, 1);
+      window.assign(frameLen, 1); // finestra rectagular
     }
   }
 
@@ -71,7 +78,7 @@ namespace upc {
 
     //Window input frame
     for (unsigned int i=0; i<x.size(); ++i)
-      x[i] *= window[i];
+      x[i] *= window[i]; //apliquem la finestra
 
     vector<float> r(npitch_max);
 

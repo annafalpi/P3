@@ -28,8 +28,8 @@ Usage:
 
 Options:
     -1 FLOAT, --threshold1 FLOAT  Threshold Autocorrelation sonoro/sordo para rmaxnorm [default: 0.5]
-    -l1 FLOAT, --theshold_clipping_1 FLOAT Threshold superior clipping [default: 0.005]
-    -l2 FLOAT, --theshold_clipping_2 FLOAT Threshold inferior clipping [default: -0.005]
+    -l1 FLOAT, --theshold_clipping_1 FLOAT  Threshold superior clipping [default: 0.005]
+    -l2 FLOAT, --theshold_clipping_2 FLOAT  Threshold inferior clipping [default: -0.005]
     -h, --help  Show this screen
     --version   Show the version of the project
 
@@ -54,8 +54,8 @@ int main(int argc, const char *argv[]) {
 	std::string input_wav = args["<input-wav>"].asString();
 	std::string output_txt = args["<output-txt>"].asString();
   float threshold1 = atof(args["--threshold1"].asString().c_str()); //modificado en clase
-  float l1 = 0.005; //atof(args["--theshold_clipping_1"].asString().c_str()); 
-  float l2 = -0.005; //atof(args["--theshold_clipping_2"].asString().c_str());  
+  float l1 = atof(args["--theshold_clipping_1"].asString().c_str()); 
+  float l2 = atof(args["--theshold_clipping_2"].asString().c_str());  
 
   // Read input sound file
   unsigned int rate;
@@ -77,11 +77,9 @@ int main(int argc, const char *argv[]) {
   /// central-clipping or low pass filtering may be used.
   
   //Printing the signal
-  
-  /*vector<float>::iterator iX3;
-    cout << "Original Signal:\n ";
-    for (iX3 = x.begin(); iX3 + n_len < x.end(); iX3 = iX3 + n_shift) {
-      cout << *iX3 << " \n";
+  /* cout << "Original Signal:\n ";
+    for (vector<float>::iterator iXaux = x.begin(); iXaux + n_len < x.end(); iXaux = iXaux + n_shift) {
+      cout << *iXaux << " \n";
     }*/
 
   //central-clipping implementation
@@ -108,26 +106,26 @@ int main(int argc, const char *argv[]) {
   /// Postprocess the estimation in order to supress errors. For instance, a median filter
   /// or time-warping may be used.
 
-  /*cout << "Original Pitch\n";
+  cout << "Original Pitch\n";
   for (vector<float>::iterator iXaux = f0.begin(); iXaux != f0.end(); ++iXaux) {
       cout << *iXaux << " \n"; 
-  }*/
+  }
 
   //Printing the pitch detection
-    //cout << "Pitch post-processed\n";
+  cout << "Pitch post-processed\n";
     vector<float>::iterator iX3;
     vector<float> median(3,0); //3 elements inicializats a 0
     for (iX3 = f0.begin(); iX3 != f0.end(); ++iX3) {
       //cout << *iX3 << " \n";
       median.assign({*prev(iX3,1),*iX3,*next(iX3,1)});
-      //cout << "\nNo sorted:\n" << median.at(0)<< "\t" << median.at(1)<< "\t" << median.at(2) <<"\n" ;
+      cout << "\nNo sorted:\n" << median.at(0)<< "\t" << median.at(1)<< "\t" << median.at(2) <<"\n" ;
       sort(median.begin(),median.end()); // ordenem 
-      //cout <<"Sorted:\n" << median.at(0)<< "\t" << median.at(1)<< "\t" << median.at(2) <<" " ;
-      if(median.at(0)<= median.at(1)/2 || median.at(2)>= 2*median.at(1)){
+      cout <<"Sorted:\n" << median.at(0)<< "\t" << median.at(1)<< "\t" << median.at(2) <<" " ;
+      if((median.at(0)<= median.at(1)/2 || median.at(2)>= 2*median.at(1)) && median.at(0) != 0 ){
         //cout << "Here ";
         *iX3 = median.at(1);
       }
-    //cout <<"\t -->"<< *iX3 << " \n"; 
+    cout <<"\t -->"<< *iX3 << " \n"; 
     }
 
   /*cout << "Postprocessed Pitch\n";

@@ -25,7 +25,9 @@ namespace upc {
 		RECT, 						///< Rectangular window
 		HAMMING						///< Hamming window
 	};
+    //docopt variables
     float threshold1;
+    float l1, l2;
 
     void set_window(Window type); ///< pre-compute window
 

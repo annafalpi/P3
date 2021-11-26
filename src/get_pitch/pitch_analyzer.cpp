@@ -65,8 +65,7 @@ namespace upc {
     //Como tiene que funcionar: devuelve T si la trama es sorda, F si la trama es sonora
     
   }
-
-  float PitchAnalyzer::compute_pitch(vector<float> & x) const {
+  float PitchAnalyzer::compute_pitch(vector<float> & x) const {  //funció compute_pitch es troba dins la classe PitchAnalyser --> acces amb ::
     if (x.size() != frameLen)
       return -1.0F;
 

@@ -106,26 +106,26 @@ int main(int argc, const char *argv[]) {
   /// Postprocess the estimation in order to supress errors. For instance, a median filter
   /// or time-warping may be used.
 
-  cout << "Original Pitch\n";
+  /*cout << "Original Pitch\n";
   for (vector<float>::iterator iXaux = f0.begin(); iXaux != f0.end(); ++iXaux) {
       cout << *iXaux << " \n"; 
-  }
+  }*/
 
   //Printing the pitch detection
-  cout << "Pitch post-processed\n";
+  //cout << "Pitch post-processed\n";
     vector<float>::iterator iX3;
     vector<float> median(3,0); //3 elements inicializats a 0
     for (iX3 = f0.begin(); iX3 != f0.end(); ++iX3) {
       //cout << *iX3 << " \n";
       median.assign({*prev(iX3,1),*iX3,*next(iX3,1)});
-      cout << "\nNo sorted:\n" << median.at(0)<< "\t" << median.at(1)<< "\t" << median.at(2) <<"\n" ;
+      //cout << "\nNo sorted:\n" << median.at(0)<< "\t" << median.at(1)<< "\t" << median.at(2) <<"\n" ;
       sort(median.begin(),median.end()); // ordenem 
-      cout <<"Sorted:\n" << median.at(0)<< "\t" << median.at(1)<< "\t" << median.at(2) <<" " ;
+      //cout <<"Sorted:\n" << median.at(0)<< "\t" << median.at(1)<< "\t" << median.at(2) <<" " ;
       if((median.at(0)<= median.at(1)/2 || median.at(2)>= 2*median.at(1)) && median.at(0) != 0 ){
         //cout << "Here ";
         *iX3 = median.at(1);
-      }
-    cout <<"\t -->"<< *iX3 << " \n"; 
+    }
+    //cout <<"\t -->"<< *iX3 << " \n"; 
     }
 
   /*cout << "Postprocessed Pitch\n";

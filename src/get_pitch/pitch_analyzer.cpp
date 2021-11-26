@@ -3,6 +3,7 @@
 #include <iostream>
 #include <math.h>
 #include "pitch_analyzer.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -88,6 +89,12 @@ namespace upc {
     vector<float>::const_iterator iR = r.begin(), iRMax = iR + npitch_min; //Si no no encuentra valores lógicos
 
     /// \TODO 
+    //cout << samplingFreq <<"\n";
+    //Intervals de valors possibles del pitch: --> Falla algo!!
+    float Pm = 50.0/float(samplingFreq);  // valor minim del pitch en freq discreta
+    float PM = 500.0/float(samplingFreq); // valor màxim del pitch en freq discrera
+    //cout << "Limits: " << Pm << " " << PM << "\n";
+
 	/// Find the lag of the maximum value of the autocorrelation away from the origin.<br>
 	/// Choices to set the minimum value of the lag are:
 	///    - The first negative value of the autocorrelation.

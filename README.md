@@ -112,15 +112,15 @@ Ejercicios de ampliación
     
     Con respecto al postprocesado, hemos implementado el filtro de mediana. Este filtro tiene tres coeficientes (muestra anterior, muestra actual y muestra posterior) con el objetivo de eliminar espurios sonoros cuando debería ser una trama sorda y viceversa.
     
-    **[Anna: código del filtro de mediana]**
-
+    ![Captura de pantalla 2021-12-01 a las 11 59 46](https://user-images.githubusercontent.com/80951224/144222872-962e059e-0fa4-4f58-8018-2f1e6fd40db4.png)
+    
   * Métodos alternativos a la autocorrelación: procesado cepstral, *average magnitude difference function*
     (AMDF), etc.
     
     Para mejorar la detección del pitch hemos implementado el Average Magnitude Difference Function (AMDF).
     
-    **[Anna: código del AMDF]**
-    
+    ![image](https://user-images.githubusercontent.com/80951224/144223025-64512acb-044f-4898-8a54-3951b838fa4d.png)
+
     Sin embargo, tras muchas pruebas y modificaciones, hemos comprobado que el porcentage de detección del pitch nos da ligeramente menor que si lo calculamos con la autocorrelación.
     
    **[Anna: poner porcentages con la autocorrelación y con el AMDF]**

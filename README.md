@@ -109,7 +109,7 @@ Ejercicios de ampliación
     
     Con respecto al postprocesado, hemos implementado el filtro de mediana. Este filtro tiene tres coeficientes (muestra anterior, muestra actual y muestra posterior) con el objetivo de eliminar espurios sonoros cuando debería ser una trama sorda y viceversa.
     
-    **[Anna: código del filtro de mediana]**
+    ![image](https://user-images.githubusercontent.com/80951224/144220652-a90f2bd7-d672-42be-8b4f-c3bd366b0566.png)
 
   * Métodos alternativos a la autocorrelación: procesado cepstral, *average magnitude difference function*
     (AMDF), etc.

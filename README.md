@@ -127,8 +127,8 @@ Ejercicios de ampliación
     
     Para la detección de sonidos sonoros o sordos hemos utilizado los siguientes parámetros:
        - Potencia de la señal 
-       - Cociente de la autocorrelación r1norm = r[1]/r[0]
-       - Cociente de la autocorrelación rmaxnor = r[pitch]/r[0]
+       - Cociente de la autocorrelación r1norm = r[1] / r[0]
+       - Cociente de la autocorrelación rmaxnor = r[pitch] / r[0]
        - **Cruces por cero ZCR**
     
     El algoritmo es el sigueinte:

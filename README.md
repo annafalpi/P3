@@ -27,8 +27,17 @@ Ejercicios básicos
 
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
+     
+     Dado que el primer máximo de la autocorrelación se encuentra en la posición cero, tomamos como valor de pitch el segundo máximo.
+     
+     
 
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
+     
+     En la primera versión del programa solo hacemos uso del valor de la autocorrelación r1norm para determinar si un sonido es sordo o sonoro.
+     
+     ![image](https://user-images.githubusercontent.com/80951224/144215488-ae08bb82-df2b-4da8-8c69-72bd1b66d740.png)
+
 
 - Una vez completados los puntos anteriores, dispondrá de una primera versión del detector de pitch. El 
   resto del trabajo consiste, básicamente, en obtener las mejores prestaciones posibles con él.

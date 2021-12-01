@@ -141,7 +141,7 @@ Ejercicios de ampliación
 
   * Técnicas de postprocesado: filtro de mediana, *dynamic time warping*, etc.
     
-    Con respecto al postprocesado, hemos implementado el filtro de mediana. Este filtro tiene tres coeficientes (muestra anterior, muestra actual y muestra posterior) con el objetivo de eliminar espurios sonoros cuando debería ser una trama sorda y viceversa.
+    Con respecto al postprocesado, hemos implementado el filtro de mediana. Este filtro tiene tres coeficientes (muestra anterior, muestra actual y muestra posterior) con el objetivo de eliminar espurios sonoros cuando debería ser una trama sorda y viceversa además de la detección de pitch doble i pitch medio. Destacamos que este filtro actua sobre una copia del vector de pitches detectados (f0) para que la implementación de este NO sea recursiva.
     
     ![Captura de pantalla 2021-12-01 a las 11 59 46](https://user-images.githubusercontent.com/80951224/144222872-962e059e-0fa4-4f58-8018-2f1e6fd40db4.png)
     

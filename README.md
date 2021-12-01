@@ -81,7 +81,12 @@ Ejercicios de ampliación
   * Inserte un *pantallazo* en el que se vea el mensaje de ayuda del programa y un ejemplo de utilización
     con los argumentos añadidos.
     
-    Se han añadido los umbrales l1 y l2 que nos permiten fijar los márgenes del central clipping.
+    Los parámetros que hemos añadido para que se puedan introducir por terminal al ejecutar el programa son los siguientes:
+    
+       - Umbrales l1 y l2 para fijar los márgenes del central clipping
+       - 
+       - 
+    **[CAMBIAR CAPTURA CUANDO SE HAYAN AÑADIDO TODOS]**
     
     ![image](https://user-images.githubusercontent.com/80951224/144213889-d2169d53-c1bf-4edb-b2b7-6efeb8fc4fee.png)
 
@@ -111,7 +116,7 @@ Ejercicios de ampliación
     
     Para mejorar la detección del pitch hemos implementado el Average Magnitude Difference Function (AMDF).
     
-    **[Anna: código del AMDF]**
+    ![image](https://user-images.githubusercontent.com/80951224/144219118-8bfcd375-38e1-4325-a15f-5e4fa108761d.png)
     
     Sin embargo, tras muchas pruebas y modificaciones, hemos comprobado que el porcentage de detección del pitch nos da ligeramente menor que si lo calculamos con la autocorrelación.
     
@@ -128,7 +133,7 @@ Ejercicios de ampliación
     
     El algoritmo es el sigueinte:
     
-    **[Anna: insertar código de *unvoiced*]**
+    **[Anna: insertar código de *unvoiced* CUANDO SE HAYA AÑADIDO EL ZCR SI AL FINAL LO HACEMOS]**
     
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
 

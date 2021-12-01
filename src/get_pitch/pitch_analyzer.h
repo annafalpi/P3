@@ -41,7 +41,12 @@ namespace upc {
 	///
 	/// Computes correlation from lag=0 to r.size()
 	///
-    void autocorrelation(const std::vector<float> &x, std::vector<float> &r) const;
+    void autocorrelation(const std::vector<float> &x, std::vector<float> &r) const; //Es declara  vector r on guardarem autocorrelació
+
+  ///
+	/// Computes amdf
+	///
+    void amdf(const std::vector<float> &x, std::vector<float> &t) const; //Es declara  vector t on guardarem amdf
 
 	///
 	/// Returns the pitch (in Hz) of input frame x
@@ -109,6 +114,7 @@ namespace upc {
     /// Sets pitch range: takes min_F0 and max_F0 in Hz, sets npitch_min and npitch_max in samples
 	///
     void set_f0_range(float min_F0, float max_F0);
+    float compute_zcr(const float x, unsigned int N, float fm);
   };
 }
 #endif

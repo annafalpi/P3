@@ -1,0 +1,12 @@
+total 6692
+ 80 rl002.wav  120 rl024.wav  160 rl046.wav  120 sb018.wav  160 sb040.wav
+ 64 rl004.wav  120 rl026.wav  160 rl048.wav  120 sb020.wav  160 sb042.wav
+ 80 rl006.wav  196 rl028.wav  160 rl050.wav  120 sb022.wav  196 sb044.wav
+ 80 rl008.wav  160 rl030.wav  120 sb002.wav  120 sb024.wav  160 sb046.wav
+100 rl010.wav  160 rl032.wav  120 sb004.wav  160 sb026.wav  160 sb048.wav
+ 68 rl012.wav  160 rl034.wav  120 sb006.wav  196 sb028.wav  160 sb050.wav
+ 60 rl014.wav  160 rl036.wav  120 sb008.wav  160 sb030.wav    0 text.txt
+ 84 rl016.wav  160 rl038.wav  120 sb010.wav  196 sb032.wav
+ 48 rl018.wav  160 rl040.wav  120 sb012.wav  160 sb034.wav
+ 48 rl020.wav  160 rl042.wav  120 sb014.wav  196 sb036.wav
+120 rl022.wav  160 rl044.wav  120 sb016.wav  160 sb038.wav

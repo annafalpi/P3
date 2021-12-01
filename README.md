@@ -15,7 +15,7 @@ Ejercicios básicos
 
    * Complete el cálculo de la autocorrelación e inserte a continuación el código correspondiente.
    
-   ![image](https://user-images.githubusercontent.com/80951224/144210417-98e9b671-a554-4a7c-ac3a-abe49475d45d.png)
+     ![image](https://user-images.githubusercontent.com/80951224/144210417-98e9b671-a554-4a7c-ac3a-abe49475d45d.png)
 
 
    * Inserte una gŕafica donde, en un *subplot*, se vea con claridad la señal temporal de un segmento de
@@ -95,18 +95,18 @@ Ejercicios de ampliación
     
     Con respecto al postprocesado, hemos implementado el filtro de mediana. Este filtro tiene tres coeficientes (muestra anterior, muestra actual y muestra posterior) con el objetivo de eliminar espurios sonoros cuando debería ser una trama sorda y viceversa.
     
-    [Anna: código del filtro de mediana]
+    **[Anna: código del filtro de mediana]**
 
   * Métodos alternativos a la autocorrelación: procesado cepstral, *average magnitude difference function*
     (AMDF), etc.
     
     Para mejorar la detección del pitch hemos implementado el Average Magnitude Difference Function (AMDF).
     
-    [Anna: código del AMDF]
+    **[Anna: código del AMDF]**
     
     Sin embargo, tras muchas pruebas y modificaciones, hemos comprobado que el porcentage de detección del pitch nos da ligeramente menor que si lo calculamos con la autocorrelación.
     
-   [Anna: poner porcentages con la autocorrelación y con el AMDF] 
+   **[Anna: poner porcentages con la autocorrelación y con el AMDF]**
     
   * Optimización **demostrable** de los parámetros que gobiernan el detector, en concreto, de los que
     gobiernan la decisión sonoro/sordo.
@@ -119,7 +119,7 @@ Ejercicios de ampliación
     
     El algoritmo es el sigueinte:
     
-    [Anna: insertar código de *unvoiced*] 
+    **[Anna: insertar código de *unvoiced*]**
     
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
 

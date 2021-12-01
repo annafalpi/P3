@@ -87,7 +87,8 @@ namespace upc {
   }
   int N=300;
   float PitchAnalyzer::compute_zcr(const vector<float> &x, unsigned int N, float samplingFreq) const{
-    int i,sum,factor,zeros;
+    unsigned int i;
+    int sum,zeros;
     sum=0;
     zeros=0;
     for (i=0; i < N-1; i++){
@@ -98,7 +99,6 @@ namespace upc {
             sum++;
             }
     }
-    factor=samplingFreq/2*(N-1);
     return((sum-zeros));
 }
 
@@ -170,7 +170,7 @@ namespace upc {
      results.at(0) = (float) samplingFreq/(float)lag;
      results.at(1) = (float) samplingFreq/(float)lag_2;
     
-#if 1
+#if 0
     if (r[0] > 0.0F)
     //cout << pot << '\t' << r[1]/r[0] << '\t' << r[lag]/r[0] << endl;~
      if (unvoiced(pot, r[1]/r[0], r[lag]/r[0], zcr)){
@@ -185,6 +185,6 @@ namespace upc {
     if (unvoiced(pot, r[1]/r[0], r[lag]/r[0], zcr)) 
       return 0;
     else
-      return (float) samplingFreq/(float)lag_2;
+      return (float) samplingFreq/(float)lag;
   }
 }

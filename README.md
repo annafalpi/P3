@@ -74,7 +74,7 @@ Ejercicios de ampliación
     
     Se han añadido los umbrales l1 y l2 que nos permiten fijar los márgenes del central clipping.
     
-    ![image](https://user-images.githubusercontent.com/80951224/144210991-2b4eafb2-b03f-4b28-b7aa-1ad56861dfe7.png)
+    ![image](https://user-images.githubusercontent.com/80951224/144213889-d2169d53-c1bf-4edb-b2b7-6efeb8fc4fee.png)
 
 
 - Implemente las técnicas que considere oportunas para optimizar las prestaciones del sistema de detección

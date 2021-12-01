@@ -14,6 +14,9 @@ Ejercicios básicos
   `get_pitch`.
 
    * Complete el cálculo de la autocorrelación e inserte a continuación el código correspondiente.
+   
+     ![image](https://user-images.githubusercontent.com/80951224/144210417-98e9b671-a554-4a7c-ac3a-abe49475d45d.png)
+
 
    * Inserte una gŕafica donde, en un *subplot*, se vea con claridad la señal temporal de un segmento de
      unos 30 ms de un fonema sonoro y su periodo de pitch; y, en otro *subplot*, se vea con claridad la
@@ -68,6 +71,11 @@ Ejercicios de ampliación
 
   * Inserte un *pantallazo* en el que se vea el mensaje de ayuda del programa y un ejemplo de utilización
     con los argumentos añadidos.
+    
+    Se han añadido los umbrales l1 y l2 que nos permiten fijar los márgenes del central clipping.
+    
+    ![image](https://user-images.githubusercontent.com/80951224/144213889-d2169d53-c1bf-4edb-b2b7-6efeb8fc4fee.png)
+
 
 - Implemente las técnicas que considere oportunas para optimizar las prestaciones del sistema de detección
   de pitch.
@@ -75,11 +83,44 @@ Ejercicios de ampliación
   Entre las posibles mejoras, puede escoger una o más de las siguientes:
 
   * Técnicas de preprocesado: filtrado paso bajo, *center clipping*, etc.
+    
+    Una de las técnicas de preprocesado que hemos aplicado es la del central clippng.
+    
+    ![image](https://user-images.githubusercontent.com/80951224/144212067-a5c35557-37e7-45e0-b310-77cd296acf05.png)
+
+    Los umbrales l1 y l2 son parámetros que se pueden ajustar introduciéndose por terminal al ejecutar el programa.
+	
+
   * Técnicas de postprocesado: filtro de mediana, *dynamic time warping*, etc.
+    
+    Con respecto al postprocesado, hemos implementado el filtro de mediana. Este filtro tiene tres coeficientes (muestra anterior, muestra actual y muestra posterior) con el objetivo de eliminar espurios sonoros cuando debería ser una trama sorda y viceversa.
+    
+    **[Anna: código del filtro de mediana]**
+
   * Métodos alternativos a la autocorrelación: procesado cepstral, *average magnitude difference function*
     (AMDF), etc.
+    
+    Para mejorar la detección del pitch hemos implementado el Average Magnitude Difference Function (AMDF).
+    
+    **[Anna: código del AMDF]**
+    
+    Sin embargo, tras muchas pruebas y modificaciones, hemos comprobado que el porcentage de detección del pitch nos da ligeramente menor que si lo calculamos con la autocorrelación.
+    
+   **[Anna: poner porcentages con la autocorrelación y con el AMDF]**
+    
   * Optimización **demostrable** de los parámetros que gobiernan el detector, en concreto, de los que
     gobiernan la decisión sonoro/sordo.
+    
+    Para la detección de sonidos sonoros o sordos hemos utilizado los siguientes parámetros:
+       - Potencia de la señal 
+       - Cociente de la autocorrelación r1norm = r[1]/r[0]
+       - Cociente de la autocorrelación rmaxnor = r[pitch]/r[0]
+       - **Cruces por cero ZCR**
+    
+    El algoritmo es el sigueinte:
+    
+    **[Anna: insertar código de *unvoiced*]**
+    
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
 
   Encontrará más información acerca de estas técnicas en las [Transparencias del Curso](https://atenea.upc.edu/pluginfile.php/2908770/mod_resource/content/3/2b_PS%20Techniques.pdf)

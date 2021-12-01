@@ -22,18 +22,30 @@ Ejercicios básicos
      unos 30 ms de un fonema sonoro y su periodo de pitch; y, en otro *subplot*, se vea con claridad la
 	 autocorrelación de la señal y la posición del primer máximo secundario.
 	 
-	 **Señal temporal**
+	 **Señal temporal - Imagen 1**
 	 ![image](https://user-images.githubusercontent.com/91891270/144219057-97a0db44-af49-401e-ae5e-f471fbf8aaa2.png)
 	 
-	 **Fragmento de fonema sonoro**
+	 **Fragmento de fonema sonoro - Imagen 2**
 	 ![image](https://user-images.githubusercontent.com/91891270/144219509-ec89be5e-9a49-4e01-aed6-ab648ac48e33.png)
 	 
-	 **Período de pitch**
+	 **Período de pitch - Imagen 3**
 	 
+	 ![image](https://user-images.githubusercontent.com/91891270/144229199-e6c27ab6-3b4e-4f5a-8829-b508282c4a02.png)
 	 
-	 **Máximo secundario de la autocorrelación**
+	 **Máximo secundario de la autocorrelación - Imagen 4**
+	 
+	<img width="388" alt="image" src="https://user-images.githubusercontent.com/91891270/144229923-6517a715-6c89-45e6-b837-93deaaa95f09.png">
 
-  	
+	Para visualizar este resultado hemos guardado en diferentes ficheros .txt los valores de l'autocorrelación de cada trama. Para ello hemos introducido las sigüientes líneas de código:
+	
+	![image](https://user-images.githubusercontent.com/91891270/144229631-ac9d4a9c-1886-405a-89d2-2b7c73e99192.png)
+	
+	Al ejecutar el programa se nos crean los siguientes ficheros.
+	![image](https://user-images.githubusercontent.com/91891270/144230166-440689dc-b1dc-4d58-8508-b0b9af3d5bbf.png)
+
+	Una vez ejecudado el programa hemos buscado una trama sonora, en nuestro caso la 14 (imagen 3) y hemos visualizado la autocorrelación con Matlab (imagen 4). Vemos que efectivamente, la detección de pitch se ha realizado correctamente.
+	
+	 `NOTA: Las linias de código referentes a la creación de ficheros deberan dejarse comentadas en futuras ejecuciones.`
 
 	 `NOTA: es más que probable que tenga que usar Python, Octave/MATLAB u otro programa semejante para
 	 hacerlo. Se valorará la utilización de la librería matplotlib de Python.`
@@ -62,6 +74,9 @@ Ejercicios básicos
 	    principales candidatos para determinar la sonoridad de la voz: el nivel de potencia de la señal
 		(r[0]), la autocorrelación normalizada de uno (r1norm = r[1] / r[0]) y el valor de la
 		autocorrelación en su máximo secundario (rmaxnorm = r[lag] / r[0]).
+		
+		![image](https://user-images.githubusercontent.com/91891270/144232007-a2a02835-5b18-448d-9740-6ef1a6055a09.png)
+
 
 		Puede considerar, también, la conveniencia de usar la tasa de cruces por cero.
 
@@ -71,6 +86,9 @@ Ejercicios básicos
       - Use el detector de pitch implementado en el programa `wavesurfer` en una señal de prueba y compare
 	    su resultado con el obtenido por la mejor versión de su propio sistema.  Inserte una gráfica
 		ilustrativa del resultado de ambos detectores.
+		
+	![image](https://user-images.githubusercontent.com/91891270/144232305-d2ce3956-10bc-4a81-ba22-cfb6394483b7.png)
+
   
   * Optimice los parámetros de su sistema de detección de pitch e inserte una tabla con las tasas de error
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
@@ -78,8 +96,12 @@ Ejercicios básicos
 
    * Inserte una gráfica en la que se vea con claridad el resultado de su detector de pitch junto al del
      detector de Wavesurfer. Aunque puede usarse Wavesurfer para obtener la representación, se valorará
-	 el uso de alternativas de mayor calidad (particularmente Python).
-   
+	 el uso de alternativas de mayor calidad (particularmente Python)
+	 
+	 Vemos que el resultado es correcto ya que la presencia de pitch (tramas sordas y sonoras) se refleja en ambas representaciones y que la envolvente que caracteritza la evolución del pitch es similar en ambos casos.
+	 
+	 ![image](https://user-images.githubusercontent.com/91891270/144232401-42d8cb22-4ade-4ed9-82ea-8f259b38e73b.png)
+
 
 Ejercicios de ampliación
 ------------------------
@@ -143,7 +165,7 @@ Ejercicios de ampliación
     
     El algoritmo es el sigueinte:
     
-    **[Anna: insertar código de *unvoiced* SI ES QUE SE IMPLEMENTA]**
+    ![image](https://user-images.githubusercontent.com/91891270/144233679-e601015e-d460-46c6-aed1-fcd44ce98b99.png)
     
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
 

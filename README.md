@@ -161,11 +161,14 @@ Ejercicios de ampliación
        - Potencia de la señal 
        - Cociente de la autocorrelación r1norm = r[1] / r[0]
        - Cociente de la autocorrelación rmaxnor = r[pitch] / r[0]
-       - **Cruces por cero ZCR**
+       - Cruces por cero ZCR
     
     El algoritmo es el sigueinte:
     
-    ![image](https://user-images.githubusercontent.com/91891270/144233679-e601015e-d460-46c6-aed1-fcd44ce98b99.png)
+    **[FOTO CÓDIGO]**
+    
+    Debemos tener en cuenta que el algoritmo de detección de tramas sordas y sonoras es bastante más simple que el que se realizó
+     en la práctica anterior (VAD), por lo que consideramos que el porcentage final es bastante bueno. Quizá hubiese sido una buena opción incorporar el algortimo del VAD en esta práctica, pero lo hemos intentado hacer y se nos ha liado la cosa.  
     
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
 

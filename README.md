@@ -117,12 +117,12 @@ Ejercicios de ampliación
     con los argumentos añadidos.
    
    ![image](https://user-images.githubusercontent.com/91891270/144266784-ca821f89-832f-4d0f-8bb1-77f5a85ea496.png)
-
+   
+   Se han añadido los siguientes parámetros para poder introducirlos por terminal:
     
-    Se han añadido los siguientes parámetros para poder introducirlos por terminal:
-       - Umbrales l1 y l2 de permiten fijar los márgenes del central clipping.
-       - Umbrales threshold1 i threshold2 para fijar los margenes de los ratios rnorm i rmaxnorm.
-       - Umbrales threshold3 i threshold3 para fijar los margenes de las features.
+    - Umbrales l1 y l2 de permiten fijar los márgenes del central clipping.
+    - Umbrales threshold1 i threshold2 para fijar los margenes de los ratios rnorm i rmaxnorm.
+    - Umbrales threshold3 i threshold3 para fijar los margenes de las features.
 
 
 - Implemente las técnicas que considere oportunas para optimizar las prestaciones del sistema de detección
@@ -167,7 +167,7 @@ Ejercicios de ampliación
     gobiernan la decisión sonoro/sordo.
     
     Para la detección de sonidos sonoros o sordos hemos utilizado los siguientes parámetros:
-       - Potencia de la señal .
+       - Potencia de la señal.
        - Cociente de la autocorrelación r1norm = r[1] / r[0].
        - Cociente de la autocorrelación rmaxnor = r[pitch] / r[0].
        - Cruces por cero ZCR.

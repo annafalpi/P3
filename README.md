@@ -21,6 +21,13 @@ Ejercicios básicos
    * Inserte una gŕafica donde, en un *subplot*, se vea con claridad la señal temporal de un segmento de
      unos 30 ms de un fonema sonoro y su periodo de pitch; y, en otro *subplot*, se vea con claridad la
 	 autocorrelación de la señal y la posición del primer máximo secundario.
+**
+Señal temporal:**
+![image](https://user-images.githubusercontent.com/91891270/144219057-97a0db44-af49-401e-ae5e-f471fbf8aaa2.png)
+
+Fragmento  con fonema sordo
+![image](https://user-images.githubusercontent.com/91891270/144219509-ec89be5e-9a49-4e01-aed6-ab648ac48e33.png)
+
 
 	 NOTA: es más que probable que tenga que usar Python, Octave/MATLAB u otro programa semejante para
 	 hacerlo. Se valorará la utilización de la librería matplotlib de Python.
@@ -30,7 +37,7 @@ Ejercicios básicos
      
      Dado que el primer máximo de la autocorrelación se encuentra en la posición cero, tomamos como valor de pitch el segundo máximo.
      
-     ![image](https://user-images.githubusercontent.com/80951224/144219877-3e00856c-3656-4e55-8f9d-cfb2e3c994c8.png)
+     
 
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
      
@@ -81,12 +88,7 @@ Ejercicios de ampliación
   * Inserte un *pantallazo* en el que se vea el mensaje de ayuda del programa y un ejemplo de utilización
     con los argumentos añadidos.
     
-    Los parámetros que hemos añadido para que se puedan introducir por terminal al ejecutar el programa son los siguientes:
-    
-       - Umbrales l1 y l2 para fijar los márgenes del central clipping
-       - 
-       - 
-    **[CAMBIAR CAPTURA CUANDO SE HAYAN AÑADIDO TODOS]**
+    Se han añadido los umbrales l1 y l2 que nos permiten fijar los márgenes del central clipping.
     
     ![image](https://user-images.githubusercontent.com/80951224/144213889-d2169d53-c1bf-4edb-b2b7-6efeb8fc4fee.png)
 
@@ -109,14 +111,14 @@ Ejercicios de ampliación
     
     Con respecto al postprocesado, hemos implementado el filtro de mediana. Este filtro tiene tres coeficientes (muestra anterior, muestra actual y muestra posterior) con el objetivo de eliminar espurios sonoros cuando debería ser una trama sorda y viceversa.
     
-    ![image](https://user-images.githubusercontent.com/80951224/144220652-a90f2bd7-d672-42be-8b4f-c3bd366b0566.png)
+    **[Anna: código del filtro de mediana]**
 
   * Métodos alternativos a la autocorrelación: procesado cepstral, *average magnitude difference function*
     (AMDF), etc.
     
     Para mejorar la detección del pitch hemos implementado el Average Magnitude Difference Function (AMDF).
     
-    ![image](https://user-images.githubusercontent.com/80951224/144219118-8bfcd375-38e1-4325-a15f-5e4fa108761d.png)
+    **[Anna: código del AMDF]**
     
     Sin embargo, tras muchas pruebas y modificaciones, hemos comprobado que el porcentage de detección del pitch nos da ligeramente menor que si lo calculamos con la autocorrelación.
     
@@ -127,13 +129,13 @@ Ejercicios de ampliación
     
     Para la detección de sonidos sonoros o sordos hemos utilizado los siguientes parámetros:
        - Potencia de la señal 
-       - Cociente de la autocorrelación r1norm = r[1] / r[0]
-       - Cociente de la autocorrelación rmaxnor = r[pitch] / r[0]
+       - Cociente de la autocorrelación r1norm = r[1]/r[0]
+       - Cociente de la autocorrelación rmaxnor = r[pitch]/r[0]
        - **Cruces por cero ZCR**
     
     El algoritmo es el sigueinte:
     
-    **[Anna: insertar código de *unvoiced* CUANDO SE HAYA AÑADIDO EL ZCR SI AL FINAL LO HACEMOS]**
+    **[Anna: insertar código de *unvoiced*]**
     
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
 

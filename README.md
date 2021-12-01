@@ -30,7 +30,7 @@ Ejercicios básicos
      
      Dado que el primer máximo de la autocorrelación se encuentra en la posición cero, tomamos como valor de pitch el segundo máximo.
      
-     
+     ![image](https://user-images.githubusercontent.com/80951224/144219877-3e00856c-3656-4e55-8f9d-cfb2e3c994c8.png)
 
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
      

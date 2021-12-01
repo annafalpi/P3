@@ -21,16 +21,17 @@ Ejercicios básicos
    * Inserte una gŕafica donde, en un *subplot*, se vea con claridad la señal temporal de un segmento de
      unos 30 ms de un fonema sonoro y su periodo de pitch; y, en otro *subplot*, se vea con claridad la
 	 autocorrelación de la señal y la posición del primer máximo secundario.
-**
-Señal temporal:**
-![image](https://user-images.githubusercontent.com/91891270/144219057-97a0db44-af49-401e-ae5e-f471fbf8aaa2.png)
+	 
+	 **Señal temporal**
+	 ![image](https://user-images.githubusercontent.com/91891270/144219057-97a0db44-af49-401e-ae5e-f471fbf8aaa2.png)
+	 
+	 **Fragmento de fonema sonoro**
+	 ![image](https://user-images.githubusercontent.com/91891270/144219509-ec89be5e-9a49-4e01-aed6-ab648ac48e33.png)
 
-Fragmento  con fonema sordo
-![image](https://user-images.githubusercontent.com/91891270/144219509-ec89be5e-9a49-4e01-aed6-ab648ac48e33.png)
+  
 
-
-	 NOTA: es más que probable que tenga que usar Python, Octave/MATLAB u otro programa semejante para
-	 hacerlo. Se valorará la utilización de la librería matplotlib de Python.
+	 `NOTA: es más que probable que tenga que usar Python, Octave/MATLAB u otro programa semejante para
+	 hacerlo. Se valorará la utilización de la librería matplotlib de Python.`
 
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.

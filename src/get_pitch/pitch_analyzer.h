@@ -26,7 +26,7 @@ namespace upc {
 		HAMMING						///< Hamming window
 	};
     //docopt variables
-    float threshold1;
+    float threshold1, threshold2, threshold3, threshold4;
     float l1, l2;
 
     void set_window(Window type); ///< pre-compute window
@@ -56,7 +56,10 @@ namespace upc {
 	///
 	/// Returns true is the frame is unvoiced
 	///
-    bool unvoiced(float pot, float r1norm, float rmaxnorm) const;
+    bool unvoiced(float pot, float r1norm, float rmaxnorm,float zcr) const;
+
+
+    float compute_zcr(const std::vector<float> &x, unsigned int N, float samplingFreq) const;
 
 
   public:
@@ -114,7 +117,7 @@ namespace upc {
     /// Sets pitch range: takes min_F0 and max_F0 in Hz, sets npitch_min and npitch_max in samples
 	///
     void set_f0_range(float min_F0, float max_F0);
-    float compute_zcr(const float x, unsigned int N, float fm);
+    
   };
 }
 #endif

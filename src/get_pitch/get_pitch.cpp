@@ -27,7 +27,10 @@ Usage:
     get_pitch --version
 
 Options:
-    -1 FLOAT, --threshold1 FLOAT  Threshold Autocorrelation sonoro/sordo para rmaxnorm [default: 0.6]
+    -1 FLOAT, --threshold1 FLOAT  Threshold Autocorrelation sonoro/sordo para rmaxnorm [default: 0.4]
+    -2 FLOAT, --threshold2 FLOAT  Threshold Autocorrelation sonoro/sordo para r1norm [default: 0.45]
+    -3 FLOAT, --threshold3 FLOAT  Threshold Potencia [default: -19]
+    -4 FLOAT, --threshold4 FLOAT  Threshold ZCR [default: 78]
     -l1 FLOAT, --theshold_clipping_1 FLOAT  Threshold superior clipping [default: 0.0005]
     -l2 FLOAT, --theshold_clipping_2 FLOAT  Threshold inferior clipping [default: -0.0005]
     -h, --help  Show this screen
@@ -54,6 +57,9 @@ int main(int argc, const char *argv[]) {
 	std::string input_wav = args["<input-wav>"].asString();
 	std::string output_txt = args["<output-txt>"].asString();
   float threshold1 = atof(args["--threshold1"].asString().c_str()); //modificado en clase
+  float threshold2 = atof(args["--threshold2"].asString().c_str());
+  float threshold3 = atof(args["--threshold3"].asString().c_str());
+  float threshold4 = atof(args["--threshold4"].asString().c_str());
   float l1 = atof(args["--theshold_clipping_1"].asString().c_str()); 
   float l2 = atof(args["--theshold_clipping_2"].asString().c_str());  
   int aux = 0;
@@ -72,7 +78,9 @@ int main(int argc, const char *argv[]) {
   // Define analyzer (creamos el objeto, tenemos que poner los parámetros que introducimos por terminal)
   PitchAnalyzer analyzer(n_len, rate, PitchAnalyzer::RECT, 50, 500); //tambien puede ser una ventana de HAMMING
   analyzer.threshold1 = threshold1;
-
+  analyzer.threshold2 = threshold2;
+  analyzer.threshold3 = threshold3;
+  analyzer.threshold4 = threshold4;
   /// \TODO
   /// Preprocess the input signal in order to ease pitch estimation. For instance,
   /// central-clipping or low pass filtering may be used.
@@ -98,7 +106,8 @@ int main(int argc, const char *argv[]) {
   vector<float>::iterator iX;
   vector<float> f0;
   vector<float> f0_aux;
-  
+ 
+
   for (iX = x.begin(); iX + n_len < x.end(); iX = iX + n_shift) {
     float f = analyzer(iX, iX + n_len);
     f0.push_back(f);
@@ -161,4 +170,5 @@ int main(int argc, const char *argv[]) {
   os << 0 << '\n';//pitch at t=Dur
 
   return 0;
+
 }

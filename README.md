@@ -27,8 +27,13 @@ Ejercicios básicos
 	 
 	 **Fragmento de fonema sonoro**
 	 ![image](https://user-images.githubusercontent.com/91891270/144219509-ec89be5e-9a49-4e01-aed6-ab648ac48e33.png)
+	 
+	 **Período de pitch**
+	 
+	 
+	 **Máximo secundario de la autocorrelación**
 
-  
+  	
 
 	 `NOTA: es más que probable que tenga que usar Python, Octave/MATLAB u otro programa semejante para
 	 hacerlo. Se valorará la utilización de la librería matplotlib de Python.`
@@ -38,11 +43,11 @@ Ejercicios básicos
      
      Dado que el primer máximo de la autocorrelación se encuentra en la posición cero, tomamos como valor de pitch el segundo máximo.
      
-     
+     ![image](https://user-images.githubusercontent.com/80951224/144223698-b620c906-ece9-44cd-b739-98993b38a9f2.png)
 
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
      
-     En la primera versión del programa solo hacemos uso del valor de la autocorrelación r1norm para determinar si un sonido es sordo o sonoro.
+     En la primera versión del programa solo hacemos uso del valor de la autocorrelación r1norm = [1] / r[0] para determinar si un sonido es sordo o sonoro.
      
      ![image](https://user-images.githubusercontent.com/80951224/144215488-ae08bb82-df2b-4da8-8c69-72bd1b66d740.png)
 
@@ -89,9 +94,11 @@ Ejercicios de ampliación
   * Inserte un *pantallazo* en el que se vea el mensaje de ayuda del programa y un ejemplo de utilización
     con los argumentos añadidos.
     
-    Se han añadido los umbrales l1 y l2 que nos permiten fijar los márgenes del central clipping.
-    
-    ![image](https://user-images.githubusercontent.com/80951224/144213889-d2169d53-c1bf-4edb-b2b7-6efeb8fc4fee.png)
+    Se han añadido los siguientes parámetros para poder introducirlos por terminal:
+       - Umbrales l1 y l2 de permiten fijar los márgenes del central clipping 
+       - 
+       - 
+     **[AÑADIR CAPTURA DOCOPT CUANDO SE HAYAN INCLUIDO TODOS]**  
 
 
 - Implemente las técnicas que considere oportunas para optimizar las prestaciones del sistema de detección
@@ -103,7 +110,7 @@ Ejercicios de ampliación
     
     Una de las técnicas de preprocesado que hemos aplicado es la del central clippng.
     
-    ![image](https://user-images.githubusercontent.com/80951224/144212067-a5c35557-37e7-45e0-b310-77cd296acf05.png)
+    ![image](https://user-images.githubusercontent.com/80951224/144223489-83a35e0e-c965-4146-bd88-fc9cdd34425b.png)
 
     Los umbrales l1 y l2 son parámetros que se pueden ajustar introduciéndose por terminal al ejecutar el programa.
 	
@@ -119,24 +126,24 @@ Ejercicios de ampliación
     
     Para mejorar la detección del pitch hemos implementado el Average Magnitude Difference Function (AMDF).
     
-    ![image](https://user-images.githubusercontent.com/80951224/144223025-64512acb-044f-4898-8a54-3951b838fa4d.png)
+    ![image](https://user-images.githubusercontent.com/80951224/144223209-ad5c545d-899b-4a34-8da1-a87afc40234f.png)
 
     Sin embargo, tras muchas pruebas y modificaciones, hemos comprobado que el porcentage de detección del pitch nos da ligeramente menor que si lo calculamos con la autocorrelación.
     
-   **[Anna: poner porcentages con la autocorrelación y con el AMDF]**
+    **[Anna: poner porcentages con la autocorrelación y con el AMDF]**
     
   * Optimización **demostrable** de los parámetros que gobiernan el detector, en concreto, de los que
     gobiernan la decisión sonoro/sordo.
     
     Para la detección de sonidos sonoros o sordos hemos utilizado los siguientes parámetros:
        - Potencia de la señal 
-       - Cociente de la autocorrelación r1norm = r[1]/r[0]
-       - Cociente de la autocorrelación rmaxnor = r[pitch]/r[0]
+       - Cociente de la autocorrelación r1norm = r[1] / r[0]
+       - Cociente de la autocorrelación rmaxnor = r[pitch] / r[0]
        - **Cruces por cero ZCR**
     
     El algoritmo es el sigueinte:
     
-    **[Anna: insertar código de *unvoiced*]**
+    **[Anna: insertar código de *unvoiced* SI ES QUE SE IMPLEMENTA]**
     
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
 

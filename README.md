@@ -115,12 +115,14 @@ Ejercicios de ampliación
 
   * Inserte un *pantallazo* en el que se vea el mensaje de ayuda del programa y un ejemplo de utilización
     con los argumentos añadidos.
+   
+   ![image](https://user-images.githubusercontent.com/91891270/144266784-ca821f89-832f-4d0f-8bb1-77f5a85ea496.png)
+
     
     Se han añadido los siguientes parámetros para poder introducirlos por terminal:
-       - Umbrales l1 y l2 de permiten fijar los márgenes del central clipping 
-       - 
-       - 
-     **[AÑADIR CAPTURA DOCOPT CUANDO SE HAYAN INCLUIDO TODOS]**  
+       - Umbrales l1 y l2 de permiten fijar los márgenes del central clipping.
+       - Umbrales threshold1 i threshold2 para fijar los margenes de los ratios rnorm i rmaxnorm.
+       - Umbrales threshold3 i threshold3 para fijar los margenes de las features.
 
 
 - Implemente las técnicas que considere oportunas para optimizar las prestaciones del sistema de detección
@@ -152,25 +154,35 @@ Ejercicios de ampliación
 
     Sin embargo, tras muchas pruebas y modificaciones, hemos comprobado que el porcentage de detección del pitch nos da ligeramente menor que si lo calculamos con la autocorrelación.
     
-    **[Anna: poner porcentages con la autocorrelación y con el AMDF]**
+    Avaluación con algoritmo de AMDF:
+    
+    ![image](https://user-images.githubusercontent.com/91891270/144268417-0f3bbbb1-0caa-4dba-8615-113ac84c7167.png)   
+    
+    Avaluación con algoritmo de autocorrelación:
+    
+    ![image](https://user-images.githubusercontent.com/91891270/144268068-62ba2b6e-9971-451c-8723-f755e56dac96.png)
+
     
   * Optimización **demostrable** de los parámetros que gobiernan el detector, en concreto, de los que
     gobiernan la decisión sonoro/sordo.
     
     Para la detección de sonidos sonoros o sordos hemos utilizado los siguientes parámetros:
-       - Potencia de la señal 
-       - Cociente de la autocorrelación r1norm = r[1] / r[0]
-       - Cociente de la autocorrelación rmaxnor = r[pitch] / r[0]
-       - Cruces por cero ZCR
+       - Potencia de la señal .
+       - Cociente de la autocorrelación r1norm = r[1] / r[0].
+       - Cociente de la autocorrelación rmaxnor = r[pitch] / r[0].
+       - Cruces por cero ZCR.
     
     El algoritmo es el sigueinte:
     
-    **[FOTO CÓDIGO]**
+    ![image](https://user-images.githubusercontent.com/91891270/144267259-9dbb5436-7bc5-49e2-93c5-bd5edf66afec.png)
+
     
     Debemos tener en cuenta que el algoritmo de detección de tramas sordas y sonoras es bastante más simple que el que se realizó
      en la práctica anterior (VAD), por lo que consideramos que el porcentage final es bastante bueno. Quizá hubiese sido una buena opción incorporar el algortimo del VAD en esta práctica, pero lo hemos intentado hacer y se nos ha liado la cosa.  
     
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
+
+Para mejorar definitivamente el sistema y usar la implementación del AMDF creemos que seria útil hacer un filtrage previo mediante la herramienta sox. Eso nos permetiria eliminar ruido i mejorar el resultado de la detección mediante AMDF. Sin embargo este último preprocesado no se ha implementado debido a la dificultad de usar sox en múltiples ficheros wav. Se deberia realitzar un script que permitiera el filtrado completo de toda la base de datos.
 
   Encontrará más información acerca de estas técnicas en las [Transparencias del Curso](https://atenea.upc.edu/pluginfile.php/2908770/mod_resource/content/3/2b_PS%20Techniques.pdf)
   y en [Spoken Language Processing](https://discovery.upc.edu/iii/encore/record/C__Rb1233593?lang=cat).
